@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> PROJECT HOME</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+   <!-- Bootstrap core JavaScript-->
+   <script src="{% static 'vendor\jquery\jquery.min.js'%}"></script>
+   <script src="{% static 'vendor\bootstrap\js\bootstrap.bundle.min.js'%}"></script>
+
+   <!-- Core plugin JavaScript-->
+   <script src="{% static 'vendor\jquery-easing\jquery.easing.min.js'%}"></script>
+
+   <!-- Custom scripts for all pages-->
+   <script src="{% static 'js\sb-admin-2.min.js' %}"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+    
+
+  <div class="sidebar">
+    <div class="logo-details">
+        <i class='bx bxs-battery-charging'></i>
+        <div class="logo_name" style="color:blue;">NTTF</div>
+         <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="#">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Analytics</span>
+       </a>
+       <span class="tooltip">Analytics</span>
+     </li>
+     <li>
+       <a href="{% url 'forms' %}">
+        <i class='bx bx-spreadsheet'></i>
+         <span class="links_name">Forms</span>
+       </a>
+       <span class="tooltip">Forms</span>
+     </li>
+     <li>
+        <a href="#">
+            <i class='bx bx-table' ></i>
+          <span class="links_name">Table</span>
+        </a>
+        <span class="tooltip">Table</span>
+      </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Settings</span>
+       </a>
+       <span class="tooltip">Settings</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="{% static 'img\undraw_profile.svg'%}" alt="profileImg">
+           <div class="name_job">
+             <div class="name">{{ request.user }}</div>
+             <div class="job"></div>
+           </div>
+         </div>
+         <a href="#" width="10" height="10"><i class='bx bx-log-out' id="log_out" data-toggle="modal" data-target="#logoutModal" ></i></a> 
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+   <!-- <br>
+    <br>
+    <br>-->
+    {% block content %}
+    {% endblock %}
+  </section>
+
+  <script src="{% static 'script.js'%}"></script>
+ <!-- Logout Modal-->
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
+ <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+             </button>
+         </div>
+         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+         <div class="modal-footer">
+             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+             <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+         </div>
+     </div>
+ </div>
+</div>
+<!--END OF MODAL-->
+</body>
+</html>
